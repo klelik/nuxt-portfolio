@@ -1,0 +1,76 @@
+$tokens: (
+  // Mono
+  'near-black': #0d0d0d,
+  'white': #FFFFFF,
+  'off-white': #fafafa,
+  'grey-1': #666666,
+  'grey-2': #999999,
+  'grey-3': #CCCCCC,
+  'grey-4': #EEEEEE,
+  'grey-5': #F9F9F9,
+
+  // Core
+  'warm-gold': #cd9c54,
+  'navy-blue': #142E4A,
+  // 'navy-blue': #00223B,
+  'white-sands': #eceae6,
+
+  // Secondary
+  'forest-green': #304636,
+  'deep-blue': #1F1D3A,
+  'moroccan-teal': #224D67,
+  'rectory-red': #9E293C,
+  'burnt-orange': #C2502E,
+  'rich-burgundy': #82223A,
+  'moss-green': #9DACAA,
+  'sage-green': #C3C5AA,
+  'warm-beige': #E3D4D3,
+  'cold-stone': #C1B9AD,
+  'warm-white': #E3D4D3,
+  'cool-lilac': #C5BCCE,
+
+  // Accents
+  'strong-red': #B32641, // Best sales
+  'nectar-orange': #EAAB3B, // Newmarket plus
+  'turquoise-sea': #3D8AA7, // Best selling
+  'happy-purple': #8B599A, // Small groups
+  'seance': #6B207D, // Ambassador Fare
+
+  'success': #008A4A,
+  'error': #DD0000,
+  'warning': #FFA300,
+
+);
+
+$vars: createCssVars($tokens, 'c');
+
+/* ==========================
+Colour tokens
+============================= */
+@include tokensToVars($vars);
+
+/* ==========================
+Colour utility classes
+============================= */
+@include tokensToUtils($tokens, $vars, "text", "--text-color");
+@include tokensToUtils($tokens, $vars, "bg", "--bg-color");
+
+/* ==========================
+Themes
+============================= */
+.theme-light,
+.theme-mid {
+  --bg-color: #fff;
+  --text-color: var(--c-grey-1);
+  --heading-color: var(--c-navy-blue);
+}
+
+.theme-dark {
+  --bg-color: var(--c-navy-blue);
+  --text-color: var(--c-off-white);
+  --heading-color: var(--c-off-white);
+}
+
+.theme-mid {
+  --bg-color: var(--c-white-sands);
+}

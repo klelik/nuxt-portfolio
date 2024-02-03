@@ -1,0 +1,39 @@
+/* =====================================
+Wrapper Utility
+horizontallty centred wrapping component.
+======================================== */
+/* Partial wrapper class to add margins etc */
+[class^="wrapper-"],
+[class*=" wrapper-"] {
+  position: var(--wrapper-position, relative);
+  margin-inline: auto;
+  max-width: var(--wrapper-width, 100%);
+  width: calc(100% - (var(--site-gutter, var(--space-2)) * 2));
+}
+
+/* Nested columns don't need the outer gutter */
+[class*=" wrapper-"] [class*=" wrapper-"]:not([data-nested]), 
+[class*=" wrapper-"] [class^=wrapper-]:not([data-nested]), 
+[class^=wrapper-] [class*=" wrapper-"]:not([data-nested]), 
+[class^=wrapper-] [class^=wrapper-]:not([data-nested]) {
+  width: 100%;
+}
+
+/* ==========================
+Wrapper tokens
+============================= */
+$tokens: (
+  page: 80rem, // 1280px
+);
+
+$vars: createCssVars($tokens, 'wrapper');
+
+/* ==========================
+Wrapper vars
+============================= */
+@include tokensToVars($vars);
+
+/* ==========================
+Wrapper utility classes
+============================= */
+@include tokensToUtils($tokens, $vars, "wrapper", "--wrapper-width");
