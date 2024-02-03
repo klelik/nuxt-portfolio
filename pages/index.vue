@@ -1,7 +1,7 @@
 <template>
     <div class="wrappe-page">
       <h1 >
-        Welcome to Nuxt.js!
+        Welcome to Nuxt.js! Test
       </h1>
       <div>
         <NuxtLink to="/about">About</NuxtLink>
